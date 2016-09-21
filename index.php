@@ -165,13 +165,13 @@
 					{
 					$link = $id+1;
 				?>
-				<div class="col-md-5 col-md-offset-1">
-					<h4>
-						<a href="<?php echo "?id=".$link."&r=".$i;?>">
+				<a href="<?php echo "?id=".$link."&r=".$i;?>">
+					<div class="col-md-5 col-md-offset-1">
+						<h4>
 							<?php echo $respuestas[$id][$i]; ?>
-						</a>
-					</h4>
-				</div>
+						</h4>
+					</div>
+				</a>
 				<?php
 				}
 				?>
