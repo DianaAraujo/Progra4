@@ -5,6 +5,7 @@
  *Versión: 1.0
  *Fecha: 20/09/2016
 */
+	session_start();
 
 	//Inicializamos el request de ID, porque en un inicio la ruta no tiene ningun parametro
 	if(!isset($_REQUEST['id'])){
@@ -42,9 +43,19 @@
 			'correcta' => 1)
 		);
 
-	$final 	= count($preguntas);
-	$id 	= $_REQUEST['id'];
-	$fallo 	= "false";
+	$final 				= count($preguntas);
+	$id 				= $_REQUEST['id'];
+	$fallo 				= "false";
+	if($_REQUEST['id'] == 0)
+	{
+		$_SESSION["dinero"] = 100;
+		$dinero 			= $_SESSION["dinero"];
+	}
+	else
+	{
+		$dinero = $_SESSION["dinero"];
+	}
+
 
 	if($id != $final)
 	{
@@ -63,6 +74,7 @@
 				if($indice_correcta == $seleccionada)
 				{
 			 		$id = $id + 1;
+			 		$_SESSION["dinero"] = $dinero * 2;
 				}
 				else
 				{
@@ -81,10 +93,13 @@
 				$seleccionada = $_REQUEST['r'];
 				if($indice_correcta == $seleccionada)
 				{
+					$dinero * 2;
 			  		$win = "true";
+			  		$_SESSION["dinero"] = 100;
 				}else
 				{
 			  		$fallo = "true";
+			  		$_SESSION["dinero"] = 100;
 				}
 		  	}
 		}

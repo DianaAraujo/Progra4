@@ -17,14 +17,20 @@
 	<!-- CSS  -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
 	<link href="css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body class="<?php echo $fondo ;?>">
   	<div class="container">
+  		<div class="row pull-right menu">
+  			<div class="col-md-2"><span>50:50</span></div>
+  			<div class="col-md-2"><i class="fa fa-phone" aria-hidden="true"></i></div>
+  			<div class="col-md-2 dinero"><span>$ <?= $dinero; ?></span></div>
+  		</div>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="logo">
-					<img src="http://4.bp.blogspot.com/-Q8H7ecFhIJE/URSKFpmf3WI/AAAAAAAAA8o/ePZRIGK_Cnw/s1600/QUIEN+QUIERE+SER+MILLONARIO.png" alt="">
+					<img src="img/logo.png" alt="">
 				</div>
 			</div>
 		</div>
