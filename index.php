@@ -114,7 +114,7 @@
 	<title>Quieres ser millonario</title>
 
 	<!-- CSS  -->
-	<link href='https://fonts.googleapis.com/css?family=Lato:100,400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="css/main.css" type="text/css" rel="stylesheet">
 </head>
@@ -165,11 +165,11 @@
 					{
 					$link = $id+1;
 				?>
-				<div class="col-md-6">
+				<div class="col-md-5 col-md-offset-1">
 					<h4>
-					<a href="<?php echo "?id=".$link."&r=".$i;?>">
-						<?php echo $respuestas[$id][$i]; ?>
-					</a>
+						<a href="<?php echo "?id=".$link."&r=".$i;?>">
+							<?php echo $respuestas[$id][$i]; ?>
+						</a>
 					</h4>
 				</div>
 				<?php
@@ -186,7 +186,11 @@
 			?>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<h1 class='felicidades'>Lo sentimos, has perdido</h1></br><center><a href='?id=0' class='iniciar'>Iniciar de nuevo</a></center>
+					<h1 class='felicidades'>Lo sentimos, has perdido</h1>
+					</br>
+					<center>
+						<a href='?id=0' class='iniciar'>Iniciar de nuevo</a>
+					</center>
 				</div>
 			</div>
 			<?php
