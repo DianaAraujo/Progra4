@@ -1,5 +1,12 @@
 <?php
 
+/*
+ *Título: Algoritmo de preguntas y respuestas
+ *Autor:  Grupo #?
+ *Versión: 1.0
+ *Fecha: 20/09/2016
+*/
+
   //Inicializamos el request de ID, porque en un inicio la ruta no tiene ningun parametro
   if(!isset($_REQUEST['id'])){
     $_REQUEST['id'] = 0;
