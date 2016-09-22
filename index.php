@@ -46,7 +46,7 @@
 						$seleccionada = $_REQUEST['r'];
 						if($indice_correcta == $seleccionada)
 						{
-						echo "<h1 class='felicidades'>¡Has ganado, felicidades!</h1></br><center><a href='?id=0' class='iniciar'>Iniciar de nuevo</a></center>";
+							echo "<h1 class='felicidades'>¡Has ganado, felicidades!</h1></br><center><a href='?id=0' class='iniciar'>Iniciar de nuevo</a></center>";
 						}
 						else
 						{
@@ -72,7 +72,7 @@
 					{
 					$link = $id+1;
 				?>
-				<a href="<?php echo "?id=".$link."&r=".$i;?>">
+				<a href="<?php echo "?id=".$link."&r=".$i."&dinero=".$dinero ?>">
 					<div class="col-md-5 col-md-offset-1">
 						<h4>
 							<?php echo $respuestas[$id][$i]; ?>

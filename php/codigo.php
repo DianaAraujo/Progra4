@@ -5,11 +5,11 @@
  *Versión: 1.0
  *Fecha: 20/09/2016
 */
-	session_start();
 
 	//Inicializamos el request de ID, porque en un inicio la ruta no tiene ningun parametro
-	if(!isset($_REQUEST['id'])){
+	if(!isset($_REQUEST['id']) || !isset($_REQUEST['dinero'])){
 		$_REQUEST['id'] = 0;
+		$_REQUEST['dinero'] = 0;
 	}
 
 	//Arreglos con preguntas
@@ -45,64 +45,56 @@
 
 	$final 				= count($preguntas);
 	$id 				= $_REQUEST['id'];
+	$dinero 			= $_REQUEST['dinero'];
 	$fallo 				= "false";
-	if($_REQUEST['id'] == 0)
-	{
-		$_SESSION["dinero"] = 100;
-		$dinero 			= $_SESSION["dinero"];
-	}
-	else
-	{
-		$dinero = $_SESSION["dinero"];
-	}
 
 
-	if($id != $final)
+	if($id != 0)
 	{
+
+		$id 				= $id - 1;
 		$indice_correcta 	= $respuestas[$id]['correcta'];
 		$pregunta 			= $preguntas[$id];
 
-		if($id != 0)
+		if(isset($_REQUEST['r']))
 		{
-
-			$id = $id - 1;
-			$indice_correcta = $respuestas[$id]['correcta'];
-
-			if(isset($_REQUEST['r']))
+			$seleccionada = $_REQUEST['r'];
+			if($indice_correcta == $seleccionada)
 			{
-				$seleccionada = $_REQUEST['r'];
-				if($indice_correcta == $seleccionada)
-				{
-			 		$id = $id + 1;
-			 		$_SESSION["dinero"] = $dinero * 2;
-				}
-				else
-				{
-			  		$fallo = "true";
-				}
-		 	}
-		}
-		elseif($final == $id)
+		 		$id 		= $id + 1;
+		 		
+		 		($dinero == 0) ? $dinero = 100 : $dinero *= 2;
+			}
+			else
+			{
+		  		$fallo 	= "true";
+			}
+	 	}
+	}
+	elseif($final == $id)
+	{
+
+		$id = $id - 1;
+		$indice_correcta = $respuestas[$id]['correcta'];
+
+		if(isset($_REQUEST['r']))
 		{
-
-			$id = $id - 1;
-			$indice_correcta = $respuestas[$id]['correcta'];
-
-			if(isset($_REQUEST['r']))
+			$seleccionada = $_REQUEST['r'];
+			if($indice_correcta == $seleccionada)
 			{
-				$seleccionada = $_REQUEST['r'];
-				if($indice_correcta == $seleccionada)
-				{
-					$dinero * 2;
-			  		$win = "true";
-			  		$_SESSION["dinero"] = 100;
-				}else
-				{
-			  		$fallo = "true";
-			  		$_SESSION["dinero"] = 100;
-				}
-		  	}
-		}
+				$dinero *= 2;
+		  		$win = "true";
+			}else
+			{
+				$dinero = 0;
+		  		$fallo = "true";
+			}
+
+	  	}
+	}
+	else
+	{
+		$pregunta = $preguntas[$id];
 	}
 
 	if($fallo == "false")
